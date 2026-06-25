@@ -1,1 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Museu Interativo: Diáspora e Luz</title>
+    <style>
+        :root {
+            --cor-fundo: #fcf8f2;
+            --cor-texto: #2c2520;
+            --solar-ouro: #f2af29;
+            --solar-laranja: #e15a1f;
+            --clima-europeu: #4a6fa5;
+            --branco: #ffffff;
+        }
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(135deg, var(--solar-laranja), var(--solar-ouro));
+            color: var(--branco);
+            text-align: center;
+            padding: 3rem 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-style: italic;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Navegação do Museu */
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: var(--cor-texto);
+            sticky: top;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav button {
+            background: none;
+            border: none;
+            color: var(--branco);
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        nav button:hover, nav button.ativo {
+            background-color: var(--solar-ouro);
+            color: var(--cor-texto);
+            font-weight: bold;
+        }
+
+        /* Conteúdo Principal */
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .sala-exposicao {
+            display: none;
