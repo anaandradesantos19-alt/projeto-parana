@@ -1,1 +1,172 @@
+:root {
+    --cor-fundo: #fcf8f2;
+    --cor-texto: #2c2520;
+    --solar-ouro: #f2af29;
+    --solar-laranja: #e15a1f;
+    --clima-europeu: #4a6fa5;
+    --branco: #ffffff;
+}
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Cabeçalho */
+header {
+    background: linear-gradient(135deg, var(--solar-laranja), var(--solar-ouro));
+    color: var(--branco);
+    text-align: center;
+    padding: 3rem 1rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+header p {
+    font-style: italic;
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Navegação do Museu */
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: var(--cor-texto);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav button {
+    background: none;
+    border: none;
+    color: var(--branco);
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+nav button:hover, nav button.ativo {
+    background-color: var(--solar-ouro);
+    color: var(--cor-texto);
+    font-weight: bold;
+}
+
+/* Conteúdo Principal */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    flex: 1;
+    width: 100%;
+}
+
+.sala-exposicao {
+    display: none;
+}
+
+.sala-exposicao.ativa {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.sala-exposicao h2 {
+    color: var(--solar-laranja);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 3px solid var(--solar-ouro);
+    padding-bottom: 0.5rem;
+}
+
+.sala-exposicao p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.sala-exposicao img {
+    max-width: 100%;
+    height: auto;
+    margin: 15px 0;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.sala-exposicao ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.sala-exposicao li {
+    margin-bottom: 0.8rem;
+    font-size: 1.05rem;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--cor-texto);
+    color: var(--branco);
+    margin-top: auto;
+}
+
+/* Animação */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    nav button {
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+        flex: 1 1 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        flex-direction: column;
+    }
+    
+    header {
+        padding: 2rem 1rem;
+    }
+    
+    .sala-exposicao h2 {
+        font-size: 1.5rem;
+    }
+}
