@@ -1,42 +1,67 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-PT">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Museu Interativo: Diáspora e Luz</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Exemplo de interface web acessível, responsiva e focada na boa leitura.">
+  
+  <title>Página Acessível e Legível</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Cabeçalho -->
-    <header>
-        <h1>Museu Interativo</h1>
-        <p>Diáspora e Luz — A história da imigração no Paraná</p>
-    </header>
+  <a href="#main-content" class="skip-link">Saltar para o conteúdo principal</a>
 
-    <!-- Navegação do Museu -->
-    <nav id="navegacao-museu">
-        <button class="ativo" data-sala="0">Diáspora Europeia e Asiática</button>
-        <button data-sala="1">Italianos</button>
-        <button data-sala="2">Alemães</button>
-        <button data-sala="3">Poloneses e Ucranianos</button>
-        <button data-sala="4">Japoneses</button>
-    </nav>
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="#" class="logo" aria-label="Página Inicial">MeuSistema</a>
+      
+      <nav class="main-nav" aria-label="Navegação Principal">
+        <ul>
+          <li><a href="#dashboard">Painel</a></li>
+          <li><a href="#perfil">Perfil</a></li>
+          <li><a href="#configuracoes">Configurações</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Conteúdo Principal -->
-    <main id="sala-exposicao">
-        <!-- O conteúdo será inserido via JavaScript -->
-        <div class="sala-exposicao ativa" id="sala-0">
-            <h2>Carregando...</h2>
-            <p>Aguarde enquanto preparamos a exposição.</p>
+  <main id="main-content" class="container">
+    
+    <article class="card">
+      <header class="card-header">
+        <h1>Painel do Utilizador</h1>
+        <p class="subtitle">Bem-vindo de volta! Consulte o estado atual do seu perfil abaixo.</p>
+      </header>
+
+      <section class="card-body">
+        <div 
+          id="user-status" 
+          role="status" 
+          aria-live="polite" 
+          class="status-badge"
+        >
+          A carregar informações do utilizador...
         </div>
-    </main>
+      </section>
 
-    <!-- Rodapé -->
-    <footer>
-        <p>&copy; 2026 Museu Interativo: Diáspora e Luz — Projeto Paraná</p>
-    </footer>
+      <footer class="card-footer">
+        <p>Precisa de alterar os seus dados? <a href="#perfil">Atualize o seu perfil aqui</a>.</p>
+      </footer>
+    </article>
 
-    <script src="script.js"></script>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 MeuSistema. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
