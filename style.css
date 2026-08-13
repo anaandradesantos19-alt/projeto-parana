@@ -1,172 +1,75 @@
-:root {
-    --cor-fundo: #fcf8f2;
-    --cor-texto: #2c2520;
-    --solar-ouro: #f2af29;
-    --solar-laranja: #e15a1f;
-    --clima-europeu: #4a6fa5;
-    --branco: #ffffff;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
+/* 1. Configurações Globais de Tipografia e Layout */
 body {
-    background-color: var(--cor-fundo);
-    color: var(--cor-texto);
-    line-height: 1.6;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  /* Fonte limpa e sem serifa para leitura em telas */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  
+  /* Tamanho de fonte base confortável */
+  font-size: 1.125rem; /* ~18px */
+  
+  /* Altura de linha proporcional para evitar texto "espremido" */
+  line-height: 1.6;
+  
+  /* Contraste adequado (evite preto puro #000 para não cansar a vista) */
+  color: #2b2b2b;
+  background-color: #fcfcfc;
+  
+  /* Melhora a renderização de texto nos navegadores */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Cabeçalho */
-header {
-    background: linear-gradient(135deg, var(--solar-laranja), var(--solar-ouro));
-    color: var(--branco);
-    text-align: center;
-    padding: 3rem 1rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+/* 2. Limite de Largura do Conteúdo (Ideal: 45 a 75 caracteres por linha) */
+main, article, .content {
+  max-width: 70ch; /* 'ch' limita a largura com base na largura do caractere '0' */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1.5rem;
 }
 
-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+/* 3. Hierarquia Visual Clara para Títulos */
+h1, h2, h3, h4, h5, h6 {
+  color: #111111;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
-header p {
-    font-style: italic;
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 0 auto;
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.35rem; }
+
+/* 4. Espaçamento Entre Parágrafos */
+p {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
 }
 
-/* Navegação do Museu */
-nav {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    background-color: var(--cor-texto);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+/* 5. Links Destacados e Acessíveis */
+a {
+  color: #0056b3;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-nav button {
-    background: none;
-    border: none;
-    color: var(--branco);
-    padding: 1rem 1.5rem;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: 0.3s;
+a:hover, a:focus {
+  color: #003d82;
 }
 
-nav button:hover, nav button.ativo {
-    background-color: var(--solar-ouro);
-    color: var(--cor-texto);
-    font-weight: bold;
+/* 6. Listas e Elementos de Destaque */
+ul, ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
 }
 
-/* Conteúdo Principal */
-main {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-    flex: 1;
-    width: 100%;
+li {
+  margin-bottom: 0.5rem;
 }
 
-.sala-exposicao {
-    display: none;
-}
-
-.sala-exposicao.ativa {
-    display: block;
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-.sala-exposicao h2 {
-    color: var(--solar-laranja);
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    border-bottom: 3px solid var(--solar-ouro);
-    padding-bottom: 0.5rem;
-}
-
-.sala-exposicao p {
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-}
-
-.sala-exposicao img {
-    max-width: 100%;
-    height: auto;
-    margin: 15px 0;
-    display: block;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.sala-exposicao ul {
-    margin: 1rem 0;
-    padding-left: 1.5rem;
-}
-
-.sala-exposicao li {
-    margin-bottom: 0.8rem;
-    font-size: 1.05rem;
-}
-
-/* Rodapé */
-footer {
-    text-align: center;
-    padding: 2rem;
-    background-color: var(--cor-texto);
-    color: var(--branco);
-    margin-top: auto;
-}
-
-/* Animação */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 1.8rem;
-    }
-    
-    nav button {
-        padding: 0.8rem 1rem;
-        font-size: 0.9rem;
-        flex: 1 1 auto;
-    }
-}
-
-@media (max-width: 480px) {
-    nav {
-        flex-direction: column;
-    }
-    
-    header {
-        padding: 2rem 1rem;
-    }
-    
-    .sala-exposicao h2 {
-        font-size: 1.5rem;
-    }
+blockquote {
+  border-left: 4px solid #0056b3;
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+  color: #555555;
+  font-style: italic;
 }
